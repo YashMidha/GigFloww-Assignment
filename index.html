@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GigFloww</title>
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+
+<body class="font-sans text-gray-800">
+    <!-- Navbar -->
+    <nav class="bg-white shadow-md p-4 flex justify-between items-center">
+        <div class="text-2xl font-bold text-blue-600 cursor-pointer"><a href="/">GigFloww</a></div>
+        <div class="hidden md:flex space-x-6 items-center">
+            <a href="/" class="hover:text-blue-600">Home</a>
+            <a href="/" class="hover:text-blue-600">About</a>
+            <div class="relative group">
+                <button class="hover:text-blue-600">Services</button>
+                <div class="absolute hidden group-hover:block bg-white shadow-lg mt-2 py-2 w-40">
+                    <a href="/" class="block px-4 py-2 hover:bg-gray-100">Design</a>
+                    <a href="/" class="block px-4 py-2 hover:bg-gray-100">Writing</a>
+                    <a href="/" class="block px-4 py-2 hover:bg-gray-100">Development</a>
+                </div>
+            </div>
+            <a href="signup.html" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Join Now</a>
+        </div>
+        <div class="md:hidden">
+            <button id="menu-toggle" class="text-2xl"><img src="assets/hamburger_icon.png" class="w-6 h-6" /></button>
+        </div>
+    </nav>
+    <div id="mobile-menu" class="hidden md:hidden px-4 py-2 bg-white shadow-md">
+        <a href="/" class="block py-2">Home</a>
+        <a href="/" class="block py-2">About</a>
+        <a href="/" class="block py-2">Design</a>
+        <a href="/" class="block py-2">Writing</a>
+        <a href="/" class="block py-2">Development</a>
+        <a href="signup.html" class="block py-2 text-blue-600 font-bold">Join Now</a>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="text-center py-16 bg-gray-100">
+        <h1 class="text-4xl md:text-5xl font-bold mb-4">Your Creative Gig Journey Starts Here</h1>
+        <p class="mb-6 text-lg">Discover, collaborate, and thrive with GigFloww</p>
+        <a href="signup.html" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Join Now</a>
+    </section>
+
+    <!-- About Section -->
+    <section class="p-8 max-w-4xl mx-auto">
+        <h2 class="text-2xl font-bold mb-4">About GigFloww</h2>
+        <p class="text-gray-600">GigFloww is a platform designed to connect creative professionals with clients around
+            the world. Whether you're a designer, writer, or developer, there's a place for you here.</p>
+    </section>
+
+    <!-- Features Section -->
+    <section class="bg-white p-8 grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+        <div class="shadow-md p-4 rounded-lg">
+            <h3 class="text-xl font-bold mb-2">Flexible Gigs</h3>
+            <p>Work on your own schedule with gigs that fit your lifestyle.</p>
+        </div>
+        <div class="shadow-md p-4 rounded-lg">
+            <h3 class="text-xl font-bold mb-2">Secure Payments</h3>
+            <p>Get paid securely and on time for every project.</p>
+        </div>
+        <div class="shadow-md p-4 rounded-lg">
+            <h3 class="text-xl font-bold mb-2">Diverse Categories</h3>
+            <p>Explore projects in design, writing, development, and more.</p>
+        </div>
+    </section>
+
+    <!-- Testimonial Slider -->
+    <section class="py-12 bg-gray-100">
+        <h2 class="text-center text-2xl font-bold mb-6">What Our Users Say</h2>
+        <div class="swiper w-full max-w-3xl mx-auto">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide bg-white p-6 rounded shadow text-center">"GigFloww helped me land my first
+                    freelance job!" - Alex</div>
+                <div class="swiper-slide bg-white p-6 rounded shadow text-center">"The platform is so easy to use and
+                    client-friendly." - Maria</div>
+                <div class="swiper-slide bg-white p-6 rounded shadow text-center">"Love the flexibility and variety of
+                    gigs available." - Sam</div>
+            </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+        </div>
+    </section>
+
+    <script>
+        document.getElementById('menu-toggle').addEventListener('click', function () {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+
+        const swiper = new Swiper('.swiper', {
+            loop: true,
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            autoplay: {
+                delay: 3000,
+            },
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GigFloww</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+
+<body class="font-sans text-gray-800 bg-gray-100">
+    <!-- Navbar -->
+    <nav class="bg-white p-4 flex justify-between items-center">
+        <div class="text-2xl font-bold text-blue-600 cursor-pointer"><a href="/">GigFloww</a></div>
+        <div class="hidden md:flex space-x-6 items-center">
+            <a href="/" class="hover:text-blue-600">Home</a>
+            <a href="/" class="hover:text-blue-600">About</a>
+            <div class="relative group">
+                <button class="hover:text-blue-600">Services</button>
+                <div class="absolute hidden group-hover:block bg-white shadow-lg mt-2 py-2 w-40">
+                    <a href="/" class="block px-4 py-2 hover:bg-gray-100">Design</a>
+                    <a href="/" class="block px-4 py-2 hover:bg-gray-100">Writing</a>
+                    <a href="/" class="block px-4 py-2 hover:bg-gray-100">Development</a>
+                </div>
+            </div>
+            <a href="signup.html" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Join Now</a>
+        </div>
+        <div class="md:hidden">
+            <button id="menu-toggle" class="text-2xl"><img src="assets/hamburger_icon.png" class="w-6 h-6" /></button>
+        </div>
+    </nav>
+    <div id="mobile-menu" class="hidden md:hidden px-4 py-2 bg-white shadow-md">
+        <a href="/" class="block py-2">Home</a>
+        <a href="/" class="block py-2">About</a>
+        <a href="/" class="block py-2">Design</a>
+        <a href="/" class="block py-2">Writing</a>
+        <a href="/" class="block py-2">Development</a>
+        <a href="signup.html" class="block py-2 text-blue-600 font-bold">Join Now</a>
+    </div>
+
+    <!-- Signup Form -->
+    <section class="max-w-xl mx-auto bg-white p-6 mt-10 rounded shadow">
+        <h2 class="text-2xl font-bold mb-4">Sign Up as a Gig Worker</h2>
+        <form id="signupForm" class="space-y-4">
+            <input type="text" id="name" placeholder="Name" required class="w-full border p-2 rounded" />
+            <input type="email" id="email" placeholder="Email" required class="w-full border p-2 rounded" />
+            <input type="text" id="category" placeholder="Skill Category" required class="w-full border p-2 rounded" />
+            <input type="url" id="portfolio" placeholder="Portfolio Link" required class="w-full border p-2 rounded" />
+            <button type="submit" class="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700">Submit</button>
+        </form>
+        <p id="thankYouMsg" class="hidden text-green-600 mt-4">Thank you for signing up!</p>
+        <p id="errorMsg" class="hidden text-red-600 mt-4">Please fill in all fields correctly.</p>
+    </section>
+
+    <script>
+        document.getElementById('menu-toggle').addEventListener('click', function () {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+        
+        document.getElementById('signupForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const category = document.getElementById('category').value.trim();
+            const portfolio = document.getElementById('portfolio').value.trim();
+
+            if (name && email && category && portfolio) {
+                document.getElementById('thankYouMsg').classList.remove('hidden');
+                document.getElementById('errorMsg').classList.add('hidden');
+            } else {
+                document.getElementById('errorMsg').classList.remove('hidden');
+                document.getElementById('thankYouMsg').classList.add('hidden');
+            }
+        });
+    </script>
+</body>
+
+</html>
